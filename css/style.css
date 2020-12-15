@@ -458,13 +458,13 @@ a {
     pointer-events: none;
 }
 .backdrop .is-hidden .modal-backdrop{
-    transform: scale(0.9);
+    transform: translate(-50%,-50%) scale(0.9);
 }
 .modal-backdrop{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+   
 
     height: 528px;
     width: 581px;
@@ -472,8 +472,10 @@ a {
     background-color: #FFFFFF;
     border-radius: 4px;
      
-    transform: scale(1);
+    transform: translate(-50%,-50%) scale(1);
+
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   
 }
  .buttom{
     position: absolute;
@@ -800,7 +802,7 @@ margin-bottom: 20px;
 .actions{
     position: absolute;
     
-    padding: 24px 63px;
+    padding-top: 24px 63px;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -808,6 +810,7 @@ margin-bottom: 20px;
     line-height: 1,5;
     letter-spacing: 0.03em;
     color: #FFFFFF;
+    
 
     top: 50%;
     left: 50%;
@@ -816,30 +819,21 @@ margin-bottom: 20px;
 
    
 }
-.site-works:hover .box{
-    opacity: 1;
-}
-.site-works .item:hover::before{
-    opacity: 1;
-}
+
 .site-works .item{
     position: relative;
+    overflow: hidden;
+    background-color: #FFFFFF;
     
 }
-.site-works .item::before{
-    display: inline-block;
+.site-works .item > .box{
     position: absolute;
-    content: '';
-    width: 100%;
-    height: 25%;
     bottom: 0;
-    background-color: rgba(47, 48, 58, 0.8);
-    opacity: 0;
-}
-.box{
-    position: absolute;
-    padding: 10px;
-    bottom: 0;
+    left: 0;
+    width: 370px;
+    height: 70px;
+    padding-bottom: 27px;
+    padding-top: 27px;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
@@ -848,14 +842,8 @@ margin-bottom: 20px;
     text-align: center;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-    color: #FFFFFF;
-    width: 100%;
-    height: 20%;
-    /*top: 85%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;*/
 
-    /*opacity: 0;
-    transition: 250ms opacity linea;*/ 
+    background-color: rgba(47, 48, 58, 0.8);
+    color: #fff;
+
 }
