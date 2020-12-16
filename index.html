@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="./css/style.css">
   </head>
 <body>
+   
     <header class="page-header" >
         <nav class="container main-nav">
             <a class="logo" href="#">
@@ -42,8 +43,33 @@
         <section class="hero">
             <div class="overlay">
                 <h1 class="title" >Эффективные решения<br> для вашего бизнеса</h1>
-                <button type="button" class="link" >Заказать услугу</button>
+                <button data-open-modal type="button" class="link" >Заказать услугу</button>
             </div>
+            <div class="backdrop is-hidden"  data-backdrop>
+                <div class="modal-backdrop">
+                    <button data-close-modal class="buttom">&#10005</button>
+                </div>
+            </div>
+            <script>
+                const refs = {
+                    openModalBtn: document.querySelector("[data-open-modal]"),
+                    closeModalBtn: document.querySelector("[data-close-modal]"),
+                    backdrop: document.querySelector("[data-backdrop]"),
+                };
+
+                    refs.openModalBtn.addEventListener("click", toggleModal);
+                    refs.closeModalBtn.addEventListener("click", toggleModal);
+
+                    refs.backdrop.addEventListener("click", logBackdropClick);
+
+                    function toggleModal() {
+                    refs.backdrop.classList.toggle("is-hidden");
+                }
+             
+                    function logBackdropClick() {
+                    console.log("Это клик в бекдроп");
+                }
+            </script>   
         </section>
         <section class="section">
 
@@ -67,7 +93,8 @@
                     </li>
                 </ul>
             </div>
-        </section>    
+        </section>
+       
         <section class="section padding">    
             <div class="container work-list">    
                 <h2>Чем мы занимаемся</h2>
@@ -87,6 +114,7 @@
                 </ul>
             </div>
         </section>
+       
         <section class="section no-padding">
             <div class="container ">
                 <h2>Наша команда</h2>
@@ -335,5 +363,6 @@
             </div>
         </div>
     </footer>
+    
 </body> 
 </html>

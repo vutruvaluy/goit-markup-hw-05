@@ -456,9 +456,10 @@ a {
 .backdrop .is-hidden{
     opacity: 0;
     pointer-events: none;
+    visibility: visible;
 }
 .backdrop .is-hidden .modal-backdrop{
-    transform: translate(-50%,-50%) scale(0.9);
+    transform: translate(-50%,-50%) scale(1.1);
 }
 .modal-backdrop{
     position: absolute;
@@ -466,8 +467,9 @@ a {
     left: 50%;
    
 
-    height: 528px;
-    width: 581px;
+    min-height: 581px;
+    min-width: 528px;
+    padding: 15px;
 
     background-color: #FFFFFF;
     border-radius: 4px;
