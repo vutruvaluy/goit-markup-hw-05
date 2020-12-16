@@ -140,7 +140,7 @@ a {
 
     transition-property: color;
     transition-duration: 250ms;
-    transition-timing-function: linear;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contacts-nav .link:hover ,
  .contacts-nav .link:focus{
@@ -344,9 +344,9 @@ a {
     align-items: center;
     border-radius: 50%;
 
-    transition-property: background-color;
+    transition-property: color, background-color;
     transition-duration: 250ms;
-    transition-timing-function: linear;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .soc-media-logo{
     display: block;
@@ -453,15 +453,15 @@ a {
     opacity: 1;
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1):
 }
-.backdrop .is-hidden{
+.backdrop.is-hidden {
     opacity: 0;
     pointer-events: none;
     visibility: visible;
 }
-.backdrop .is-hidden .modal-backdrop{
+.backdrop.is-hidden.modal {
     transform: translate(-50%,-50%) scale(1.1);
 }
-.modal-backdrop{
+.modal {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -476,7 +476,7 @@ a {
      
     transform: translate(-50%,-50%) scale(1);
 
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 5000ms cubic-bezier(0.4, 0, 0.2, 1);
    
 }
  .buttom{
@@ -505,10 +505,11 @@ a {
     border: 1px solid #AFB1B8;
     border-radius: 4px;
 
-    transition-property: background-color;
-    transition-duration: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    transition-timing-function: linear;
+    transition-property: color, border;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 
 .client-list-item{
 width: calc((100%-150px) / 6);
@@ -524,13 +525,14 @@ margin-right: 30px;
     justify-content: center;
     align-items: center;
 
-    transition-property: background-color;
-    transition-duration: 500ms;
-    transition-timing-function: linear;
+    transition-property: color, border;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 } 
 .client-logo{
     fill: #AFB1B8;
-}  
+}
+
 .client-list-item:hover{
     border-color: var(--accent-color);
 }
@@ -567,9 +569,9 @@ margin-right: 30px;
     border: #F5F4FA;;
     border-radius: 4px;
 
-    transition-property: background-color;
+    transition-property: color, background-color;
     transition-duration: 250ms;
-    transition-timing-function: linear;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .passive-list:hover,
@@ -723,9 +725,9 @@ margin-bottom: 20px;
     align-items: center;
     border-radius: 50%;
 
-    transition-property: background-color;
+    transition-property: color, background-color;
     transition-duration: 250ms;
-    transition-timing-function: linear;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-sotial{
     display: block;
@@ -744,82 +746,44 @@ margin-bottom: 20px;
 .card-contant {
     position: relative;
 }
-/*.menu-item:hover .submenu{
-     display: block;
-}
-.submenu{
-    position: absolute;
-
-    left: 0;
-    bottom: 100%;
-
-    padding: 0;
-    margin: 0;
-
-    list-style: none;
-    padding: 47px ;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 28px;
-    letter-spacing: 0.03em;
 
 
-    background-color: rgba(33, 150, 243, 0.9);;
-    color: #FFFFFF;
-
-    display: none;
-}
-.submenu a{
-    text-decoration: none;
-}*/
-.card:hover .actions{
-    opacity: 1;
-}
-.card-action:hover::before{
-    opacity: 1;
-}
-.card-action{
+.overlay{
     position: relative;
-    
-}
-.action-overlay{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(33, 150, 243, 0.9);
-    
-    transform: translatey(100%);
-    transition: trancform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-   
-}
-
-.card:hover .action-overlay{
-    transform: translatey(0);
+    overflow: hidden;
 }
 
 .actions{
+    display: block;
     position: absolute;
-    
-    padding-top: 24px 63px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateY(100%);
+  
+    padding-top: 63px;
+    padding-right: 24px;
+    padding-bottom: 63px;
+    padding-left: 24px;
+  
+    font-weight: 400;
     font-size: 18px;
-    line-height: 1,5;
+    line-height: 1.56;
     letter-spacing: 0.03em;
-    color: #FFFFFF;
-    
-
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-
-   
+  
+    color: #ffffff;
+    background-color: rgba(33, 150, 243, 0.9);
+  
+    transition-property: opacity, transform;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.menu-link:hover .actions,
+.menu-link:focus .actions {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .site-works .item{
